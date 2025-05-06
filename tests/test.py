@@ -22,7 +22,9 @@ masked_account = get_mask_account(account_number)
 print(masked_account)
 
 
-def mask_account_card (card_info: str, ) -> str:
+def mask_account_card(
+    card_info: str,
+) -> str:
     """Функция принимает тип и номер карты или счета и возвращает строку с замаскированным номером"""
 
     parts = card_info.split(" ")
@@ -37,7 +39,7 @@ def mask_account_card (card_info: str, ) -> str:
 
 
 card_info = "Счет 64686473678894779589"
-masked_number = mask_account_card (card_info)
+masked_number = mask_account_card(card_info)
 print(masked_number)
 
 
@@ -48,6 +50,7 @@ def get_date(date: str) -> str:
     month = date[5:7]
     day = date[8:10]
     return f"{day}.{month}.{year}"
+
 
 date = "2024-03-11T02:26:18.671407"
 print(get_date(date))

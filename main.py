@@ -1,10 +1,9 @@
-from src.masks import get_mask_account, get_mask_card_number
+from src.widget import mask_account_card, get_date
 
-card_number = ""
-masked_card = get_mask_card_number(card_number)
-print(masked_card)
+card_info = ""
+masked_number = mask_account_card (card_info)
+print(masked_number)
 
 
-account_number = ""
-masked_account = get_mask_account(account_number)
-print(masked_account)
+date = ""
+print(get_date(date))
