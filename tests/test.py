@@ -1,6 +1,7 @@
 from typing import Dict, List
 
-def get_mask_card_number(card_number):
+
+def get_mask_card_number(card_number: str) -> str:
     """Функция принимает на вход номер карты и возвращает ее маску"""
 
     masked_card_number = f"{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"
@@ -12,7 +13,7 @@ masked_number = get_mask_card_number(card_number)
 print(masked_number)
 
 
-def get_mask_account(account_number):
+def get_mask_account(account_number: str) -> str:
     """Функция принимает на вход номер счета и возвращает его маску"""
 
     masked_account_number = f"**{account_number[-4:]}"
@@ -58,32 +59,43 @@ date = "2024-03-11T02:26:18.671407"
 print(get_date(date))
 
 
-def filter_by_state(bank_data: [dict], state="EXECUTED") -> [dict]:
+def filter_by_state(bank_data: List[Dict], state: str = "EXECUTED") -> List[Dict]:
     """
     Функция принимает на вход список словарей с данными о банковских операциях и параметр state,
     возвращает новый список, содержащий только те словари, у которых ключ state содержит
     переданное в функцию значение.
     """
 
-    filtered_bank_data = []
+    filtered_bank_data: List[Dict] = []
     for i in bank_data:
         if i.get("state") == state:
             filtered_bank_data.append(i)
     return filtered_bank_data
 
 
-bank_data = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}, {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
+bank_data = [
+    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+]
 print(filter_by_state(bank_data))
 
 
-def sort_by_date(bank_data: List[Dict], sorting_type: bool=True) -> List[Dict]:
+def sort_by_date(bank_data: List[Dict], sorting_type: bool = True) -> List[Dict]:
     """
     Функция принимает список словарей и параметр, задающий порядок сортировки (по умолчанию — убывание).
     Возвращает новый список, отсортированный по дате
     """
 
-    sorted_bank_data: List[Dict] = sorted(bank_data, key=lambda x: x['date'], reverse=sorting_type)
+    sorted_bank_data: List[Dict] = sorted(bank_data, key=lambda x: x["date"], reverse=sorting_type)
     return sorted_bank_data
 
-bank_data = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}, {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}, {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'}, {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}]
+
+bank_data = [
+    {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
+    {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+    {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
+    {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
+]
 print(sort_by_date(bank_data))
