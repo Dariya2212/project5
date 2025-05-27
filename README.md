@@ -15,6 +15,23 @@ git clone https://github.com/Dariya2212/project5.git
 poetry install
 ```
 
+## Тестирование
+
+1. Необходимо установить зависимости:
+```
+poetry add --group dev pytest-cov
+```
+2. Запуск тестов:
+```
+pytest
+```
+3. Запуск тестов с оценкой покрытия:
+```
+poetry run pytest --cov
+```
+4. Дополнительно создан HTML файл для просмотра отчета о покрытии в папке "htmlcov"
+
+
 ## Использование
 ...
 
