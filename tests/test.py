@@ -4,11 +4,17 @@ from typing import Dict, List
 def get_mask_card_number(card_number: str) -> str:
     """Функция принимает на вход номер карты и возвращает ее маску"""
 
-    masked_card_number = f"{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"
-    return masked_card_number
+    for i in card_number:
+        if i != i.isdigit():
+            return "Номер карты должен состоять из 16 цифр"
+    if len(card_number) != 16:
+        return "Номер карты должен состоять из 16 цифр"
+    else:
+        masked_card_number = f"{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}"
+        return masked_card_number
 
 
-card_number = ""
+card_number = "?000792289606361"
 masked_number = get_mask_card_number(card_number)
 print(masked_number)
 
@@ -20,7 +26,7 @@ def get_mask_account(account_number: str) -> str:
     return masked_account_number
 
 
-account_number = ""
+account_number = "2373654108430135874305"
 masked_account = get_mask_account(account_number)
 print(masked_account)
 
