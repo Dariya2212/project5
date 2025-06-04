@@ -1,5 +1,7 @@
 from typing import Dict, List
 
+import pytest
+
 from src.generators import (
     card_number_generator,
     filter_by_currency,
@@ -67,8 +69,21 @@ def test_empty_transaction_descriptions(transactions_empty_description: List[Dic
             break
 
 
-# Тестируем корректность вывода номеров карт в казанном диапазоне
-def test_card_number_generator() -> None:
+# Тестируем корректность вывода номеров карт в разных диапазонах
+@pytest.mark.parametrize(
+    "start, end, expected_numbers",
+    [
+        (1, 3, ["0000 0000 0000 0001", "0000 0000 0000 0002", "0000 0000 0000 0003"]),
+        (10, 12, ["0000 0000 0000 0010", "0000 0000 0000 0011", "0000 0000 0000 0012"]),
+    ],
+)
+def test_card_number_generator(start: int, end: int, expected_numbers: str) -> None:
+    generated_numbers = list(card_number_generator(start, end))
+    assert generated_numbers == expected_numbers
+
+
+# Тестируем корректность вывода номеров карт в указанном диапазоне
+def test_card_number_generator_2() -> None:
     for card_number in card_number_generator(1, 5):
         print(card_number)
 
