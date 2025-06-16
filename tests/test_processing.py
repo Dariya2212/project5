@@ -49,8 +49,3 @@ def test_sort_in_descending_order(bank_data: List[Dict]) -> None:
 # Тест сортировки списка словарей при наличии одинаковых дат
 def test_sort_same_dates(same_dates: List[Dict], sorted_same_dates: List[Dict]) -> None:
     assert sort_by_date(same_dates) == sorted_same_dates
-
-
-# Тест сортировки списка словарей при отсутствии значения "date" в некоторых из них
-# def test_sort_with_missing_date(missing_date, sorted_missing_date):
-#    assert sort_by_date(missing_date) == sorted_missing_date
