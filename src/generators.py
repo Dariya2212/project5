@@ -41,5 +41,5 @@ def card_number_generator(start: int, end: int) -> Generator[str, Any, None]:
         card_num = f"{number:016d}"
 
         # Разбиваем на группы по 4 цифры
-        formatted_card_number = " ".join([card_num[i:i+4] for i in range(0, 16, 4)])
+        formatted_card_number = " ".join([card_num[i:i + 4] for i in range(0, 16, 4)])
         yield formatted_card_number
