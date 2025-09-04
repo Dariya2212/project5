@@ -179,3 +179,31 @@ def test_operations():
             "to": "Счет 35383033474447895560",
         },
     ]
+
+
+@pytest.fixture
+def data_for_processing():
+    return [
+        {"description": "Перевод организации", "amount": 1000},
+        {"description": "Оплата услуг", "amount": 500},
+        {"description": "Перевод с карты на карту", "amount": 2000},
+        {"description": "Открытие вклада", "amount": 3000},
+        {"description": "Покупка продуктов", "amount": 1500},
+        {"description": "", "amount": 0},
+        {},
+    ]
+
+
+@pytest.fixture
+def data_for_processing_1():
+    return [
+        {"description": "Перевод организации"},
+        {"description": "Оплата услуг"},
+        {"description": "Перевод с карты на карту"},
+        {"description": "Открытие вклада"},
+        {"description": "Покупка продуктов"},
+        {"description": "Оплата коммунальных услуг"},
+        {"description": "Перевод на другой счет"},
+        {"description": ""},
+        {},
+    ]
