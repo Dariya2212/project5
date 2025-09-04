@@ -1,6 +1,7 @@
 import json
 from unittest.mock import mock_open, patch
 
+from src.processing import process_bank_search
 from src.utils import load_transactions
 
 
